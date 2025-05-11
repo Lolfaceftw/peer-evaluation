@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Evaluation Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Peer Evaluation</h1>
+
+        <div id="loginSection">
+            <h2>Enter Your Code</h2>
+            <input type="text" id="userCodeInput" placeholder="Your Special Code">
+            <button id="loginButton">Login</button>
+            <p id="loginError" class="error-message"></p>
+        </div>
+
+        <div id="evaluationSection" style="display: none;">
+            <h2 id="welcomeMessage"></h2>
+            <p>Please evaluate your peers. Click on a name to start.</p>
+
+            <div id="peerList">
+                <!-- Peers will be listed here by JavaScript -->
+            </div>
+
+            <div id="evaluationFormContainer" style="display: none;">
+                <h3 id="evaluatingPeerName"></h3>
+                <form id="questionsForm">
+                    <!-- Questions will be injected here by JavaScript -->
+                </form>
+                <button id="submitEvaluationButton">Submit Evaluation</button>
+                <p id="evaluationMessage" class="success-message"></p>
+            </div>
+
+            <div id="completionSection" style="display: none;">
+                <h3>All evaluations complete!</h3>
+                <p>Thank you for participating.</p>
+                <button id="downloadEvaluationsButton">Download Evaluations (CSV)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

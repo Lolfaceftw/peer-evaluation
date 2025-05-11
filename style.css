@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+#loginSection, #evaluationSection {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    display: inline-block;
+    background: #5cb85c;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #4cae4c;
+}
+
+#loginButton {
+    width: 100%;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+}
+
+#peerList {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.peer-item {
+    background: #e9ecef;
+    color: #007bff;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ced4da;
+}
+
+.peer-item:hover {
+    background: #d3d9df;
+}
+
+.peer-item.evaluated {
+    background: #adb5bd; /* Grayed out */
+    color: #f8f9fa;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+#evaluationFormContainer {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.question-item {
+    margin-bottom: 15px;
+}
+
+.question-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.likert-scale {
+    display: flex;
+    justify-content: space-around;
+}
+
+.likert-scale label {
+    font-weight: normal;
+    margin-right: 5px;
+}
+.likert-scale input[type="radio"] {
+    margin-right: 3px;
+}
+
+
+#downloadEvaluationsButton {
+    background: #007bff;
+    margin-top: 20px;
+}
+
+#downloadEvaluationsButton:hover {
+    background: #0056b3;
+}
