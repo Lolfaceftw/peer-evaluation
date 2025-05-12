@@ -1,0 +1,892 @@
+/* Marvel Rivals - Team Evaluation CSS - Material UI Inspired */
+
+:root {
+    /* Color Palette: Maroon & White (Marvel Rivals Theme) */
+    --color-primary: #8C0000; /* Deep Maroon */
+    --color-primary-variant: #6D0000; /* Darker Maroon */
+    --color-secondary: #FFD700; /* Gold - for subtle accents, if needed */
+    --color-secondary-variant: #E6C200; /* Darker Gold */
+
+    --color-background: #F5F5F5; /* Light Gray - Material standard */
+    --color-surface: #FFFFFF;   /* White - for cards, dialogs */
+    --color-error: #D32F2F;     /* Material Red 700 */
+    --color-success: #388E3C;   /* Material Green 700 */
+    --color-warning: #FBC02D;   /* Material Yellow 700 */
+    --color-info: #1976D2;      /* Material Blue 700 */
+
+    --color-on-primary: #FFFFFF;
+    --color-on-secondary: #000000; /* Gold is light, so black text */
+    --color-on-background: rgba(0, 0, 0, 0.87);
+    --color-on-surface: rgba(0, 0, 0, 0.87);
+    --color-on-error: #FFFFFF;
+    --color-on-success: #FFFFFF;
+    --color-on-warning: #000000;
+    --color-on-info: #FFFFFF;
+
+    --color-text-primary: rgba(0, 0, 0, 0.87);
+    --color-text-secondary: rgba(0, 0, 0, 0.60);
+    --color-text-disabled: rgba(0, 0, 0, 0.38);
+    --color-text-hint: rgba(0, 0, 0, 0.38); /* For placeholder/hint text */
+    --color-divider: rgba(0, 0, 0, 0.12);
+    --color-icon: rgba(0, 0, 0, 0.54);
+    --color-icon-active: var(--color-primary);
+
+    /* Typography */
+    --font-family-base: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-family-monospace: 'Roboto Mono', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* Material Type Scale (using rem) */
+    --typography-h1-font-size: 6rem;
+    --typography-h2-font-size: 3.75rem;
+    --typography-h3-font-size: 3rem;
+    --typography-h4-font-size: 2.125rem;
+    --typography-h5-font-size: 1.5rem;
+    --typography-h6-font-size: 1.25rem;
+    --typography-subtitle1-font-size: 1rem;
+    --typography-subtitle2-font-size: 0.875rem;
+    --typography-body1-font-size: 1rem;
+    --typography-body2-font-size: 0.875rem;
+    --typography-button-font-size: 0.875rem;
+    --typography-caption-font-size: 0.75rem;
+    --typography-overline-font-size: 0.625rem;
+
+    --line-height-base: 1.6;
+    --line-height-tight: 1.4;
+    --line-height-body: 1.5;
+
+    /* Spacing */
+    --spacing-unit: 8px;
+    --spacing-xs: var(--spacing-unit);      /* 8px */
+    --spacing-sm: calc(var(--spacing-unit) * 2); /* 16px */
+    --spacing-md: calc(var(--spacing-unit) * 3); /* 24px */
+    --spacing-lg: calc(var(--spacing-unit) * 4); /* 32px */
+    --spacing-xl: calc(var(--spacing-unit) * 6); /* 48px */
+    --spacing-xxl: calc(var(--spacing-unit) * 8); /* 64px */
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-round: 50%;
+
+    /* Shadows (Elevation) */
+    --shadow-umbra-opacity: 0.2;
+    --shadow-penumbra-opacity: 0.14;
+    --shadow-ambient-opacity: 0.12;
+    --shadow-elevation-0: none;
+    --shadow-elevation-1: 0px 2px 1px -1px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                          0px 1px 1px 0px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                          0px 1px 3px 0px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-2: 0px 3px 1px -2px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                          0px 2px 2px 0px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                          0px 1px 5px 0px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-4: 0px 2px 4px -1px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                          0px 4px 5px 0px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                          0px 1px 10px 0px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-6: 0px 3px 5px -1px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                          0px 6px 10px 0px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                          0px 1px 18px 0px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-8: 0px 5px 5px -3px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                          0px 8px 10px 1px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                          0px 3px 14px 2px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-12: 0px 7px 8px -4px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                           0px 12px 17px 2px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                           0px 5px 22px 4px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-16: 0px 8px 10px -5px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                           0px 16px 24px 2px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                           0px 6px 30px 5px rgba(0,0,0,var(--shadow-ambient-opacity));
+    --shadow-elevation-24: 0px 11px 15px -7px rgba(0,0,0,var(--shadow-umbra-opacity)),
+                           0px 24px 38px 3px rgba(0,0,0,var(--shadow-penumbra-opacity)),
+                           0px 9px 46px 8px rgba(0,0,0,var(--shadow-ambient-opacity));
+    
+    /* Transitions */
+    --transition-short: 150ms ease-in-out;
+    --transition-medium: 250ms ease-in-out;
+    --transition-long: 350ms ease-in-out;
+
+    /* Focus Outline */
+    --focus-outline-color: var(--color-primary);
+    --focus-outline-width: 2px;
+    --focus-outline-offset: 2px;
+}
+
+/* Global Resets & Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px; /* Base for rem units */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: var(--spacing-md);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 900px; /* Adjusted for more content */
+    margin: var(--spacing-md) auto;
+    padding: var(--spacing-lg);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-elevation-4);
+}
+
+/* Add some default margin to paragraphs directly within the container for better text flow */
+.container > p {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--typography-body1-font-size);
+    color: var(--color-text-secondary);
+}
+
+/* Ensure headings used for titles or major messages have good spacing */
+.container > h1,
+.container > h2,
+.container > h3 {
+    margin-bottom: var(--spacing-lg); /* More bottom margin for section-level titles */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-base);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-tight);
+    text-align: center; /* Retained from original */
+}
+
+h1 { font-size: var(--typography-h4-font-size); font-weight: var(--font-weight-light); } /* Adjusted for app context */
+h2 { font-size: var(--typography-h5-font-size); font-weight: var(--font-weight-regular); }
+h3 { font-size: var(--typography-h6-font-size); font-weight: var(--font-weight-medium); }
+h4 { font-size: var(--typography-subtitle1-font-size); font-weight: var(--font-weight-medium); }
+h5 { font-size: var(--typography-subtitle2-font-size); font-weight: var(--font-weight-medium); }
+h6 { font-size: var(--typography-body1-font-size); font-weight: var(--font-weight-medium); }
+
+
+/* Links */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-short);
+}
+a:hover, a:focus {
+    color: var(--color-primary-variant);
+    text-decoration: underline;
+}
+
+/* Focus Visible Styling */
+:focus-visible {
+    outline: var(--focus-outline-width) solid var(--focus-outline-color);
+    outline-offset: var(--focus-outline-offset);
+    box-shadow: 0 0 0 calc(var(--focus-outline-width) + var(--focus-outline-offset)) rgba(var(--color-primary), 0.25); /* Softer glow */
+}
+/* Remove default outline for non-keyboard focus if :focus-visible is supported */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+/* Buttons */
+button, .btn { /* Added .btn for flexibility */
+    display: inline-flex; /* For aligning icon + text */
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-family-base);
+    font-size: var(--typography-button-font-size);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.025em; /* Material button letter spacing */
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-short), box-shadow var(--transition-short);
+    user-select: none;
+    min-width: 64px; /* Material min width */
+    line-height: 1.75;
+    text-decoration: none; /* For <a> styled as button */
+}
+
+/* Contained Button (Primary) */
+button, .btn--contained {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    box-shadow: var(--shadow-elevation-2);
+}
+button:hover, .btn--contained:hover {
+    background-color: var(--color-primary-variant);
+    box-shadow: var(--shadow-elevation-4);
+}
+button:active, .btn--contained:active {
+    box-shadow: var(--shadow-elevation-8);
+}
+button:disabled, .btn--contained:disabled {
+    background-color: rgba(0,0,0, 0.12);
+    color: var(--color-text-disabled);
+    box-shadow: var(--shadow-elevation-0);
+    cursor: not-allowed;
+}
+
+/* Outlined Button */
+.btn--outlined {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid rgba(var(--color-primary-rgb, 140,0,0), 0.5); /* Use RGB for opacity */
+    box-shadow: none;
+}
+.btn--outlined:hover {
+    background-color: rgba(var(--color-primary-rgb, 140,0,0), 0.08);
+    border-color: var(--color-primary);
+}
+.btn--outlined:disabled {
+    color: var(--color-text-disabled);
+    border-color: rgba(0,0,0, 0.12);
+}
+
+/* Text Button */
+.btn--text {
+    background-color: transparent;
+    color: var(--color-primary);
+    box-shadow: none;
+    padding: var(--spacing-xs) var(--spacing-sm); /* Less padding for text */
+}
+.btn--text:hover {
+    background-color: rgba(var(--color-primary-rgb, 140,0,0), 0.08);
+}
+.btn--text:disabled {
+    color: var(--color-text-disabled);
+}
+
+
+/* Input Fields (Text Fields) */
+.form-group {
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm); /* Adjust padding for label */
+    font-family: var(--font-family-base);
+    font-size: var(--typography-body1-font-size);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface); /* Can be transparent if over a colored bg */
+    border: none;
+    border-bottom: 1px solid var(--color-divider);
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0; /* Top radius */
+    transition: border-color var(--transition-short), box-shadow var(--transition-short);
+    appearance: none; /* Remove default styling */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-bottom: 2px solid var(--color-primary);
+    /* box-shadow: 0 1px 0 0 var(--color-primary); */ /* Material style */
+}
+input[type="text"]:-webkit-autofill,
+input[type="email"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill { /* Style for autofill */
+    -webkit-box-shadow: 0 0 0 30px var(--color-surface) inset !important;
+    -webkit-text-fill-color: var(--color-text-primary) !important;
+    border-bottom: 1px solid var(--color-divider); /* Ensure border remains */
+}
+input[type="text"]:-webkit-autofill:focus,
+input[type="email"]:-webkit-autofill:focus,
+input[type="password"]:-webkit-autofill:focus {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* Placeholder text style */
+::placeholder {
+    color: var(--color-text-hint);
+    opacity: 1; /* Firefox fix */
+}
+
+/* Helper text for inputs */
+.form-helper-text {
+    font-size: var(--typography-caption-font-size);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+    padding-left: var(--spacing-sm); /* Align with input text */
+}
+input[aria-invalid="true"] + .form-helper-text,
+textarea[aria-invalid="true"] + .form-helper-text {
+    color: var(--color-error);
+}
+input[aria-invalid="true"],
+textarea[aria-invalid="true"]{
+    border-bottom-color: var(--color-error);
+}
+input[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus{
+    border-bottom-color: var(--color-error);
+    box-shadow: 0 1px 0 0 var(--color-error);
+}
+
+
+/* Login Specific */
+#loginSection {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl); /* Ensure good space before next content if login is shown */
+}
+#loginButton { /* Ensure it takes full width as before, if intended */
+    width: 100%; 
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    font-size: var(--typography-subtitle1-font-size);
+}
+
+/* Messages (Error, Success, Info) */
+.message-banner {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    box-shadow: var(--shadow-elevation-2);
+}
+.error-message {
+    background-color: var(--color-error);
+    color: var(--color-on-error);
+}
+.success-message {
+    background-color: var(--color-success);
+    color: var(--color-on-success);
+}
+.info-message { /* For evaluation-closed-message */
+    background-color: var(--color-info);
+    color: var(--color-on-info);
+}
+.info-message h3 {
+    color: var(--color-on-info);
+    margin-bottom: var(--spacing-xs);
+}
+
+
+/* Peer List */
+#peerList {
+    margin-top: var(--spacing-lg); /* Retain top margin */
+    margin-bottom: var(--spacing-xl); /* Increase bottom margin for better separation */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.peer-item {
+    display: flex; 
+    justify-content: flex-start; /* MODIFIED: Align items to the start */
+    align-items: center; 
+    padding: var(--spacing-md);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--transition-short), box-shadow var(--transition-short);
+    box-shadow: var(--shadow-elevation-1);
+    position: relative; 
+}
+.peer-name { 
+    flex-grow: 1;  /* Allow name to take most space */
+    text-align: left; 
+    order: 2; 
+    margin-right: var(--spacing-sm); /* Space between name and status */
+}
+
+.peer-item:hover {
+    background-color: var(--color-background); /* Slight change */
+    box-shadow: var(--shadow-elevation-4);
+}
+.peer-item.evaluated .peer-name { 
+    color: var(--color-text-disabled);
+}
+
+/* NEW styles for peer-status span */
+.peer-status {
+    order: 3; /* Last item in the flex order */
+    font-size: var(--typography-caption-font-size);
+    color: var(--color-success);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap; /* Prevent wrapping */
+    margin-left: auto; /* Pushes status to the far right if peer-name doesn't fill all space. If fixed spacing preferred, remove this and rely on peer-name's flex-grow and margins. */
+    /* For more controlled spacing, ensure peer-name has flex-grow:1 and then this can be static */
+    /* Example: margin-left: var(--spacing-sm); if flex-grow on name is reliable */
+}
+
+/* Ellipsis Menu and Dropdown - NEW/RESTORED */
+.ellipsis-menu {
+    position: relative; 
+    display: inline-block; 
+    margin-right: var(--spacing-sm); 
+    order: 1; 
+}
+
+.ellipsis-button {
+    background: none;
+    border: none;
+    color: var(--color-icon);
+    padding: var(--spacing-xs); /* Keep some padding */
+    border-radius: var(--border-radius-sm); /* MODIFIED: Less round for a boxier feel */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; /* MODIFIED: Adjusted for a squarer look */
+    height: 32px; /* MODIFIED: Adjusted for a squarer look */
+    transition: background-color var(--transition-short), color var(--transition-short);
+}
+.ellipsis-button:hover,
+.ellipsis-button:focus {
+    background-color: rgba(0,0,0,0.08); /* Standard hover for icon buttons */
+    color: var(--color-icon-active);
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default, shown by JS with .show */
+    position: absolute;
+    right: 0; /* Align to the right of the button */
+    top: calc(100% + 4px); /* Below the button with a small gap */
+    background-color: var(--color-surface);
+    min-width: 280px; /* Good width for stats */
+    max-width: 320px;
+    box-shadow: var(--shadow-elevation-8); /* Material menu shadow */
+    border-radius: var(--border-radius-sm);
+    z-index: 1000; /* Ensure it's above other peer items */
+    padding: var(--spacing-sm) 0; /* Vertical padding for items, no horizontal padding on container */
+    overflow: hidden; /* For rounded corners on items */
+}
+.dropdown-content.show {
+    display: block;
+}
+
+.stats-title {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--typography-subtitle1-font-size);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-divider);
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-category, .overall-average-stat {
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--typography-body2-font-size);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-body);
+}
+.stat-category:hover, .overall-average-stat:hover { /* Subtle hover for list items */
+    background-color: rgba(0,0,0,0.04);
+}
+
+.category-name {
+    font-weight: var(--font-weight-regular);
+    margin-right: var(--spacing-sm); /* Space between name and value */
+}
+.category-average, .average-value {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    white-space: nowrap; /* Prevent score from wrapping */
+}
+
+.overall-average-stat {
+    border-top: 1px solid var(--color-divider);
+    margin-top: var(--spacing-xs);
+    padding-top: var(--spacing-sm);
+}
+.overall-average-stat span:first-child { /* Label for "Overall:" */
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+.overall-average-stat .average-value {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary); /* Highlight overall score with primary color */
+}
+/* END Ellipsis Menu and Dropdown */
+
+/* Evaluation Form Sections */
+#evaluationFormContainer {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-elevation-2);
+}
+
+.evaluation-categories-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+.category-section {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background-color: var(--color-surface); /* Each category can be a card-like surface */
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-divider);
+    /* box-shadow: var(--shadow-elevation-1); */ /* Optional shadow per category */
+}
+.category-section h3 { /* Category Title */
+    margin-top: 0;
+    font-size: var(--typography-h6-font-size);
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Align category titles left */
+}
+
+.questions-list {
+    padding-left: 0; /* Remove old padding */
+    list-style: none;
+}
+
+.question-item {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--color-background); /* Slightly different bg for each question */
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-divider);
+}
+.question-item label, .question-text { /* question-text is new, label is legacy */
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    font-size: var(--typography-body1-font-size);
+}
+
+/* Likert Scale */
+.likert-scale {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: space-between; /* Distribute options */
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--color-surface); /* Use surface for contrast */
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-divider);
+}
+.scale-option {
+    display: inline-flex;
+    align-items: center;
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    margin-right: var(--spacing-sm); /* Space between options */
+    margin-bottom: var(--spacing-xs); /* Space if they wrap */
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-short), color var(--transition-short);
+}
+.scale-option:hover {
+    background-color: rgba(var(--color-primary-rgb, 140,0,0), 0.08);
+    color: var(--color-primary);
+}
+.scale-option input[type="radio"] {
+    margin-right: var(--spacing-xs);
+    cursor: pointer;
+    /* Consider custom radio button styles for better Material look */
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary); /* Modern browser support */
+}
+.scale-option input[type="radio"]:focus-visible {
+    outline: var(--focus-outline-width) solid var(--focus-outline-color);
+    outline-offset: var(--focus-outline-offset);
+}
+.scale-option.selected-label { /* If JS adds class to selected label */
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Evaluation Summary Section */
+.peer-evaluation-summary {
+    margin-top: var(--spacing-lg); /* Consistent with other sections */
+    margin-bottom: var(--spacing-xl); /* Add bottom margin for separation */
+    padding: var(--spacing-lg);
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-elevation-2);
+}
+.peer-evaluation-summary h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Summary Table */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+    font-size: var(--typography-body2-font-size);
+}
+.summary-table th, 
+.summary-table td {
+    padding: var(--spacing-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--color-divider);
+}
+.summary-table th {
+    background-color: var(--color-background); /* Light header */
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    font-size: var(--typography-subtitle2-font-size);
+    text-align: left;
+}
+.summary-table td:not(:first-child), .summary-table th:not(:first-child) {
+    text-align: center; /* Center align scores */
+}
+.summary-table tr:hover {
+    background-color: rgba(var(--color-primary-rgb,140,0,0), 0.04); /* Subtle primary hover */
+}
+.summary-table .overall-score {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    font-size: var(--typography-body1-font-size);
+}
+
+/* Evaluation Closed Message */
+.evaluation-closed-message {
+    /* Uses .info-message styles now */
+    margin: var(--spacing-lg) 0;
+}
+
+
+/* Download Button (Specific styling if needed beyond default button) */
+#downloadEvaluationsButton {
+    /* background-color: var(--color-secondary); Primary is Maroon, secondary is Gold */
+    /* color: var(--color-on-secondary); */
+    /* Example of using secondary color if desired */
+    margin-top: var(--spacing-lg);
+}
+/* #downloadEvaluationsButton:hover {
+    background-color: var(--color-secondary-variant);
+} */
+
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-surface-rgb, 255,255,255), 0.85); /* Use surface with opacity */
+    display: flex; /* JS will toggle to flex */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* High z-index */
+    /* display: none; (controlled by JS) */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-medium), visibility var(--transition-medium);
+}
+.loading-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--color-background); /* Lighter part of spinner */
+    border-top: 5px solid var(--color-primary); /* Active part of spinner */
+    border-radius: var(--border-radius-round);
+    animation: spin 0.8s linear infinite;
+    margin-bottom: var(--spacing-md);
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading-overlay p {
+    font-size: var(--typography-body1-font-size);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Chart Styles */
+.chart-container {
+    width: 100%;
+    min-height: 450px; /* Increased default height */
+    margin: 0; /* Adjusted to be a plain wrapper */
+    padding: var(--spacing-md); /* Retained for canvas spacing */
+}
+#statsVisualizationContainer { /* This seems to be a wrapper for chart? */
+    margin-top: var(--spacing-xl); /* Increased top margin for clear separation */
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-elevation-2);
+    order: 999; /* Explicit order to push to the end in flex layouts */
+    width: 100%; /* Ensure full width */
+    clear: both; /* Clear any floats */
+    display: block; /* Ensure it's a block element */
+}
+#statsVisualizationContainer h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--typography-h6-font-size);
+    text-align: left;
+}
+
+
+/* Responsive Design Improvements */
+@media (max-width: 960px) { /* Tablet and smaller */
+    .container {
+        padding: var(--spacing-md);
+    }
+    h1 { font-size: var(--typography-h5-font-size); }
+    h2 { font-size: var(--typography-h6-font-size); }
+    h3 { font-size: var(--typography-subtitle1-font-size); }
+
+    #peerList {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .question-item {
+        padding: var(--spacing-sm);
+    }
+
+    .chart-container {
+        min-height: 400px; /* Adjusted height for tablets */
+        padding: var(--spacing-sm);
+    }
+    #statsVisualizationContainer {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 600px) { /* Mobile */
+    body {
+        padding: var(--spacing-sm);
+    }
+    .container {
+        padding: var(--spacing-sm);
+        margin: var(--spacing-sm) auto;
+        box-shadow: var(--shadow-elevation-1); /* Less shadow on mobile */
+    }
+    
+    h1 { font-size: var(--typography-h6-font-size); }
+    h2 { font-size: var(--typography-subtitle1-font-size); }
+    h3 { font-size: var(--typography-body1-font-size); font-weight: var(--font-weight-medium); }
+
+    #peerList {
+        grid-template-columns: 1fr; /* Single column */
+        gap: var(--spacing-sm);
+    }
+
+    
+    .dropdown-content {
+        min-width: 240px; /* Slightly smaller dropdown on mobile */
+        /* Consider making it full width if space is very tight */
+        /* width: calc(100% - var(--spacing-md));
+        left: 50%;
+        transform: translateX(-50%); */
+    }
+    
+    .likert-scale {
+        flex-direction: column; /* Stack options vertically */
+        align-items: flex-start;
+    }
+    .scale-option {
+        margin-right: 0; /* No right margin when stacked */
+        margin-bottom: var(--spacing-sm);
+        width: 100%; /* Full width for better touch target */
+    }
+    .scale-option:last-child {
+        margin-bottom: 0;
+    }
+    
+    .summary-table {
+        font-size: var(--typography-caption-font-size); /* Smaller font for table */
+    }
+    .summary-table th, .summary-table td {
+        padding: var(--spacing-xs);
+    }
+
+    .category-section {
+        padding: var(--spacing-sm);
+    }
+    .question-item {
+        padding: var(--spacing-sm);
+    }
+
+    .chart-container {
+        min-height: 350px; /* Adjusted height for mobile */
+        padding: var(--spacing-sm);
+    }
+    #statsVisualizationContainer {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Utility Classes (Optional but helpful) */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.d-none { display: none !important; } /* For JS control */
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+
+.sr-only { /* For screen-reader only text */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

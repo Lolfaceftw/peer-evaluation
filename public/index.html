@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Evaluation Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- ... your existing HTML content for login, evaluation sections ... -->
+        <h1>Peer Evaluation</h1>
+
+        <!-- Primary Consolidated Completion Message Container -->
+        <div id="primaryCompletionMessage" class="message-banner success-message" style="display:none;">
+            <!-- Content will be populated by JavaScript -->
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+
+        <div id="loginSection">
+            <h2>Enter Your Code</h2>
+            <input type="text" id="userCodeInput" placeholder="Your Special Code">
+            <button id="loginButton">Login</button>
+            <p id="loginError" class="error-message"></p>
+        </div>
+
+        <div id="evaluationSection" style="display: none;">
+            <h2 id="welcomeMessage"></h2>
+            <p id="pendingEvaluationInstruction">Please evaluate your peers. Click on a name to start.</p>
+
+            <div id="peerList">
+                <!-- Peers will be listed here by JavaScript -->
+            </div>
+
+            <div id="evaluationFormContainer" style="display: none;">
+                <h3 id="evaluatingPeerName"></h3>
+                <div id="debugControlsContainer" style="margin-bottom: 10px;"></div>
+                <form id="questionsForm">
+                    <!-- Questions will be injected here by JavaScript -->
+                </form>
+                <button id="submitEvaluationButton">Submit Evaluation</button>
+                <p id="evaluationMessage" class="success-message"></p>
+            </div>
+
+            <div id="completionSection" style="display: none;">
+                <h3>All evaluations complete!</h3>
+                <p>Thank you for participating.</p>
+                <button id="reEvaluateButton" style="display: none;">Re-evaluate again?</button>
+                <!-- Download button removed -->
+            </div>
+            
+            <!-- Element for "Evaluation Closed" message -->
+            <div id="evaluationClosedMessage" class="evaluation-closed-message" style="display: none;">
+                <h3>Peer Evaluations are currently closed</h3>
+                <p>The system is not accepting new evaluations at this time. Please check back later.</p>
+            </div>
+
+            <!-- Container for Peer Evaluation Summary Table -->
+            <div id="peerEvaluationSummary" class="peer-evaluation-summary" style="display: none;">
+                <!-- Summary table will be injected here by uiRenderer.js -->
+            </div>
+
+            <div id="statsVisualizationContainer" style="display: none;">
+                <h3>Evaluation Statistics</h3>
+                <div class="chart-container">
+                    <canvas id="evaluationChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase App (Core) and other Firebase services as ES modules -->
+    <!-- Your main application script, also as a module -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "admin-scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upload-questions": "node upload-questions.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Scripts for managing the peer evaluation Firebase data",
+  "dependencies": {
+    "firebase-admin": "^11.7.1"
+  }
+}
